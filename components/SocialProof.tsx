@@ -4,21 +4,39 @@ export default function SocialProof() {
       quote: "Preply helped me pass my medical exams. The flashcards during anatomy videos were a game-changer!",
       author: "Sarah M.",
       role: "Medical Student",
-      avatar: "👩‍⚕️",
+      avatar: (
+        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center">
+          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+          </svg>
+        </div>
+      ),
       rating: 5
     },
     {
       quote: "Our students' engagement increased by 300% after implementing Preply for our online courses.",
       author: "Prof. Johnson",
       role: "Stanford University",
-      avatar: "👨‍🏫",
+      avatar: (
+        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center">
+          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+          </svg>
+        </div>
+      ),
       rating: 5
     },
     {
       quote: "I finally completed that 40-hour Python course. Preply kept me engaged throughout!",
       author: "Alex D.",
       role: "Software Developer",
-      avatar: "👨‍💻",
+      avatar: (
+        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center">
+          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+          </svg>
+        </div>
+      ),
       rating: 5
     }
   ]
@@ -32,11 +50,47 @@ export default function SocialProof() {
   ]
 
   const logos = [
-    { name: 'Stanford', icon: '🎓' },
-    { name: 'MIT', icon: '🎓' },
-    { name: 'Coursera', icon: '📚' },
-    { name: 'Udemy', icon: '💻' },
-    { name: 'Khan Academy', icon: '📖' }
+    {
+      name: 'Stanford',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+        </svg>
+      )
+    },
+    {
+      name: 'MIT',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      )
+    },
+    {
+      name: 'Coursera',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      )
+    },
+    {
+      name: 'Udemy',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      )
+    },
+    {
+      name: 'Khan Academy',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      )
+    }
   ]
 
   return (
@@ -88,7 +142,7 @@ export default function SocialProof() {
 
                 {/* Author */}
                 <div className="flex items-center">
-                  <div className="text-4xl mr-3">{testimonial.avatar}</div>
+                  <div className="mr-3">{testimonial.avatar}</div>
                   <div>
                     <div className="font-bold text-gray-900">{testimonial.author}</div>
                     <div className="text-sm text-gray-500">{testimonial.role}</div>
@@ -106,8 +160,8 @@ export default function SocialProof() {
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8">
             {logos.map((logo, index) => (
-              <div key={index} className="flex items-center space-x-2 text-gray-400 hover:text-gray-600 transition-colors">
-                <span className="text-3xl">{logo.icon}</span>
+              <div key={index} className="flex items-center space-x-2 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer">
+                {logo.icon}
                 <span className="text-xl font-bold">{logo.name}</span>
               </div>
             ))}

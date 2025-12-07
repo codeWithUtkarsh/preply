@@ -4,7 +4,11 @@ export default function HowItWorks() {
       number: '1',
       title: 'Paste Your Video URL',
       description: 'Copy any YouTube URL or direct video link and paste it into Preply',
-      icon: '🔗',
+      icon: (
+        <svg className="w-16 h-16 text-purple-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+        </svg>
+      ),
       details: [
         'Works with YouTube, Vimeo, and direct URLs',
         'No downloads required',
@@ -15,7 +19,11 @@ export default function HowItWorks() {
       number: '2',
       title: 'AI Creates Your Learning Path',
       description: 'Our AI analyzes the content and generates flashcards, quizzes, and notes',
-      icon: '🤖',
+      icon: (
+        <svg className="w-16 h-16 text-purple-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
       details: [
         'GPT-4 understands the context',
         'Whisper transcribes accurately',
@@ -26,7 +34,13 @@ export default function HowItWorks() {
       number: '3',
       title: 'Learn Actively & Track Progress',
       description: 'Watch with interactive flashcards, take quizzes, and review your weak spots',
-      icon: '🎓',
+      icon: (
+        <svg className="w-16 h-16 text-purple-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+        </svg>
+      ),
       details: [
         'Questions appear during playback',
         'Instant feedback on answers',
@@ -64,7 +78,7 @@ export default function HowItWorks() {
                   </div>
 
                   {/* Icon */}
-                  <div className="text-6xl text-center mb-4 mt-4">
+                  <div className="flex justify-center mb-4 mt-4">
                     {step.icon}
                   </div>
 

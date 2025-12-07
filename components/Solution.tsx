@@ -7,7 +7,11 @@ export default function Solution() {
 
   const features = [
     {
-      icon: '🎬',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      ),
       title: 'Smart Video Processing',
       description: 'Process any YouTube video or direct video URL with AI-powered transcription',
       benefits: [
@@ -18,7 +22,11 @@ export default function Solution() {
       ]
     },
     {
-      icon: '💡',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      ),
       title: 'Interactive Flashcards',
       description: 'Questions appear at strategic timestamps during playback',
       benefits: [
@@ -29,7 +37,11 @@ export default function Solution() {
       ]
     },
     {
-      icon: '📝',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      ),
       title: 'Adaptive Quizzes',
       description: '10-question comprehensive final quiz that adapts to your performance',
       benefits: [
@@ -40,7 +52,11 @@ export default function Solution() {
       ]
     },
     {
-      icon: '⏱️',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z" />
+        </svg>
+      ),
       title: 'Smart Review System',
       description: 'Incorrect answers redirect to exact video timestamps',
       benefits: [
@@ -51,7 +67,11 @@ export default function Solution() {
       ]
     },
     {
-      icon: '📊',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
       title: 'Learning Analytics',
       description: 'Detailed performance reports and progress tracking',
       benefits: [
@@ -62,7 +82,11 @@ export default function Solution() {
       ]
     },
     {
-      icon: '📖',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+      ),
       title: 'Visual Notes & Diagrams',
       description: 'Auto-generated study notes with visual diagrams',
       benefits: [
@@ -98,7 +122,7 @@ export default function Solution() {
                   : 'bg-gray-50 hover:bg-gray-100 text-gray-900'
               }`}
             >
-              <div className="text-5xl mb-4">{feature.icon}</div>
+              <div className="mb-4">{feature.icon}</div>
               <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
               <p className={`mb-4 ${activeFeature === index ? 'text-blue-100' : 'text-gray-600'}`}>
                 {feature.description}
@@ -136,17 +160,29 @@ export default function Solution() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="text-4xl mb-3">🎯</div>
+              <div className="flex justify-center mb-3">
+                <svg className="w-12 h-12 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
               <h4 className="font-bold text-lg mb-2">Active Learning</h4>
               <p className="text-gray-600">Turn passive watching into active engagement with real-time questions</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-3">🤖</div>
+              <div className="flex justify-center mb-3">
+                <svg className="w-12 h-12 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
               <h4 className="font-bold text-lg mb-2">AI-Powered</h4>
               <p className="text-gray-600">GPT-4 and Whisper automatically generate contextual content</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl mb-3">⚡</div>
+              <div className="flex justify-center mb-3">
+                <svg className="w-12 h-12 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
               <h4 className="font-bold text-lg mb-2">Save Time</h4>
               <p className="text-gray-600">Learn faster with targeted review and smart timestamp navigation</p>
             </div>

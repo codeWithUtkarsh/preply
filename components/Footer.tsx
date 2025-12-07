@@ -117,8 +117,12 @@ export default function Footer() {
           <p className="text-gray-400 text-sm">
             © 2025 Preply. All rights reserved.
           </p>
-          <p className="text-gray-400 text-sm mt-4 md:mt-0">
-            Made with ❤️ for learners everywhere
+          <p className="text-gray-400 text-sm mt-4 md:mt-0 flex items-center gap-1">
+            Made with
+            <svg className="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+            </svg>
+            for learners everywhere
           </p>
         </div>
       </div>
