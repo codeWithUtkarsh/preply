@@ -37,165 +37,158 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-purple-800 animate-gradient">
-      {/* Animated background elements */}
+    <section className="relative min-h-screen overflow-hidden bg-[#0a0a0f]">
+      {/* Animated grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+
+      {/* Gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-purple-500 rounded-full opacity-20 blur-3xl float-animation"></div>
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-blue-500 rounded-full opacity-20 blur-3xl float-animation" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-pink-500 rounded-full opacity-10 blur-3xl float-animation" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-purple-600 rounded-full opacity-20 blur-[120px] float-animation"></div>
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-blue-600 rounded-full opacity-20 blur-[120px] float-animation" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-pink-500 rounded-full opacity-10 blur-[100px] float-animation" style={{ animationDelay: '4s' }}></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <div className="slide-up">
-          <div className="inline-block mb-4 px-4 py-2 bg-yellow-400/20 border border-yellow-400 rounded-full">
-            <p className="text-yellow-300 font-semibold">🚀 Coming Soon</p>
-          </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Content */}
+          <div className="slide-up text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-purple-500/30 mb-6">
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+              <span className="text-sm text-gray-300">Launching Early 2025</span>
+            </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Stop Watching.<br />
-            <span className="text-yellow-300">Start Learning.</span>
-          </h1>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1]">
+              Learn 3x Faster
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 animate-gradient">
+                From Any Video
+              </span>
+            </h1>
 
-          <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto">
-            AI-powered flashcards and quizzes that appear while you watch any educational video.
-          </p>
+            <p className="text-xl text-gray-400 mb-8 max-w-xl">
+              AI-powered flashcards and quizzes that appear while you watch.
+              <span className="text-white font-semibold"> Never forget what you learn.</span>
+            </p>
 
-          {/* Pain Points Section */}
-          <div className="max-w-3xl mx-auto mb-12">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border-2 border-white/20">
-              <h2 className="text-2xl md:text-3xl font-bold text-yellow-300 mb-6">Sound Familiar?</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-                <div className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-red-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                  </svg>
-                  <p className="text-white text-base">You watch a 1-hour lecture but can't remember the key concepts</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-red-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                  </svg>
-                  <p className="text-white text-base">You zone out halfway through and miss important information</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-red-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                  </svg>
-                  <p className="text-white text-base">You spend hours rewatching just to find one specific explanation</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-red-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                  </svg>
-                  <p className="text-white text-base">You have no idea what you actually learned until the exam</p>
-                </div>
+            {/* Quick Stats */}
+            <div className="flex gap-8 mb-10">
+              <div>
+                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">3x</div>
+                <div className="text-sm text-gray-500">Better Retention</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">60%</div>
+                <div className="text-sm text-gray-500">Time Saved</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-blue-400">1000+</div>
+                <div className="text-sm text-gray-500">On Waitlist</div>
               </div>
             </div>
-          </div>
 
-          {/* CTA Question */}
-          <div className="mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Would you be happy to try a solution that fixes this?
-            </h3>
-            <p className="text-lg text-blue-100 mb-6">
-              Join our waitlist and be the first to experience AI-powered active learning!
+            {/* Email Form */}
+            <form onSubmit={handleSubmit} className="mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 max-w-2xl">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  required
+                  disabled={loading}
+                  className="flex-1 px-6 py-4 rounded-xl glass-effect border border-purple-500/30 text-white text-lg placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:opacity-50"
+                />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold rounded-xl text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-2xl shadow-purple-500/50 disabled:opacity-50 disabled:cursor-not-allowed pulse-glow whitespace-nowrap"
+                >
+                  {loading ? 'Joining...' : 'Join Waitlist →'}
+                </button>
+              </div>
+              {message && (
+                <div className={`mt-4 p-4 rounded-xl ${message.type === 'success' ? 'glass-effect border border-green-400' : 'glass-effect border border-red-400'}`}>
+                  <p className={`text-sm ${message.type === 'success' ? 'text-green-300' : 'text-red-300'}`}>
+                    {message.text}
+                  </p>
+                </div>
+              )}
+            </form>
+
+            <p className="text-sm text-gray-500">
+              Join 1,000+ learners • No credit card required • Early access
             </p>
           </div>
 
-          {/* Email capture form */}
-          <form onSubmit={handleSubmit} className="max-w-md mx-auto mb-8">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                required
-                disabled={loading}
-                className="flex-1 px-6 py-4 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-4 focus:ring-yellow-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold rounded-xl text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-2xl hover:shadow-yellow-400/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:translate-y-0 pulse-glow"
-              >
-                {loading ? 'Joining...' : 'Join Waitlist →'}
-              </button>
-            </div>
-            {message && (
-              <div className={`mt-3 p-3 rounded-lg ${message.type === 'success' ? 'bg-green-500/20 border border-green-400' : 'bg-red-500/20 border border-red-400'}`}>
-                <p className={`text-sm ${message.type === 'success' ? 'text-green-100' : 'text-red-100'}`}>
-                  {message.text}
-                </p>
-              </div>
-            )}
-            {!message && (
-              <p className="text-sm text-blue-100 mt-3">Join 1,000+ people on the waitlist • Be notified at launch</p>
-            )}
-          </form>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <a
-              href="#how-it-works"
-              className="px-6 py-3 text-white hover:text-yellow-300 font-semibold transition-colors duration-200"
-            >
-              See How It Works →
-            </a>
-          </div>
-
-          {/* Product Preview */}
-          <div className="max-w-4xl mx-auto mt-12">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm bg-white/5">
-              <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative">
-                <div className="text-center px-6">
-                  <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
-                    <svg className="w-10 h-10 text-purple-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <p className="text-white text-2xl font-bold mb-2">Product Preview Coming Soon</p>
-                  <p className="text-blue-200 text-sm mt-2 max-w-md mx-auto">We're building something amazing! Join the waitlist to get exclusive early access and see Preply in action.</p>
+          {/* Right Column - Pain Points Cards */}
+          <div className="space-y-4">
+            <div className="glass-effect rounded-2xl p-6 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105 group">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold mb-1">Can't remember key concepts</h3>
+                  <p className="text-gray-400 text-sm">Watch a 1-hour lecture but retain almost nothing</p>
                 </div>
               </div>
-              {/* Simulated flashcard overlay */}
-              <div className="absolute bottom-6 right-6 bg-white rounded-lg shadow-xl p-4 max-w-xs transform rotate-2">
-                <p className="text-sm font-semibold text-purple-900 mb-2">Coming Soon:</p>
-                <p className="text-xs text-gray-700">AI-generated quizzes & flashcards during video playback</p>
+            </div>
+
+            <div className="glass-effect rounded-2xl p-6 border border-orange-500/30 hover:border-orange-500/60 transition-all duration-300 hover:scale-105 group">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold mb-1">Zone out halfway through</h3>
+                  <p className="text-gray-400 text-sm">Lose focus and miss critical information</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-16">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-300">3x</div>
-              <div className="text-sm text-blue-100 mt-1">Better Retention</div>
+            <div className="glass-effect rounded-2xl p-6 border border-yellow-500/30 hover:border-yellow-500/60 transition-all duration-300 hover:scale-105 group">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold mb-1">Waste hours rewatching</h3>
+                  <p className="text-gray-400 text-sm">Scrub through videos to find one explanation</p>
+                </div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-300">60%</div>
-              <div className="text-sm text-blue-100 mt-1">Less Study Time</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-300">AI-Powered</div>
-              <div className="text-sm text-blue-100 mt-1">Smart Learning</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-300">Early 2025</div>
-              <div className="text-sm text-blue-100 mt-1">Launching Soon</div>
+
+            <div className="glass-effect rounded-2xl p-6 border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:scale-105 group">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold mb-1">No idea what you learned</h3>
+                  <p className="text-gray-400 text-sm">Only realize gaps when it's exam time</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="animate-bounce">
-          <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+        <a href="#features" className="flex flex-col items-center gap-2 group">
+          <span className="text-sm text-gray-500 group-hover:text-purple-400 transition-colors">Scroll to explore</span>
+          <div className="w-6 h-10 rounded-full border-2 border-purple-500/30 group-hover:border-purple-500/60 flex items-start justify-center p-2 transition-colors">
+            <div className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-bounce"></div>
+          </div>
+        </a>
       </div>
     </section>
   )
