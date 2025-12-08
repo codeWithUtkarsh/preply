@@ -89,24 +89,28 @@ export default function Pricing() {
   ]
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gray-950 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-600 rounded-full opacity-10 blur-3xl"></div>
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full opacity-10 blur-3xl"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Simple, Transparent Pricing
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Simple, <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Transparent</span> Pricing
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             Start free, upgrade when you need more. No hidden fees.
           </p>
 
           {/* Billing toggle */}
-          <div className="inline-flex items-center bg-gray-100 rounded-lg p-1">
+          <div className="inline-flex items-center glass-effect rounded-lg p-1">
             <button
               onClick={() => setBillingCycle('monthly')}
               className={`px-6 py-2 rounded-md font-semibold transition-all ${
                 billingCycle === 'monthly'
-                  ? 'bg-white text-gray-900 shadow'
-                  : 'text-gray-600'
+                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg'
+                  : 'text-gray-400'
               }`}
             >
               Monthly
@@ -115,12 +119,12 @@ export default function Pricing() {
               onClick={() => setBillingCycle('annual')}
               className={`px-6 py-2 rounded-md font-semibold transition-all ${
                 billingCycle === 'annual'
-                  ? 'bg-white text-gray-900 shadow'
-                  : 'text-gray-600'
+                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg'
+                  : 'text-gray-400'
               }`}
             >
               Annual
-              <span className="ml-2 text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
+              <span className="ml-2 text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded-full border border-green-500/30">
                 Save 20%
               </span>
             </button>
@@ -132,32 +136,32 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`rounded-2xl p-8 relative ${
+              className={`rounded-2xl p-8 relative transition-all duration-300 hover:scale-105 ${
                 plan.popular
-                  ? 'bg-gradient-to-br from-purple-600 to-blue-600 text-white shadow-2xl transform scale-105'
-                  : 'bg-gray-50 border-2 border-gray-200'
+                  ? 'bg-gradient-to-br from-purple-600 to-blue-600 text-white shadow-2xl shadow-purple-500/30 transform scale-105 glow-effect'
+                  : 'glass-effect border-2 border-purple-500/20 hover:border-purple-500/40'
               }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-yellow-400 text-purple-900 px-4 py-1 rounded-full text-sm font-bold">
+                  <span className="bg-yellow-400 text-purple-900 px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                     Most Popular
                   </span>
                 </div>
               )}
 
-              <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+              <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white' : 'text-white'}`}>
                 {plan.name}
               </h3>
-              <p className={`text-sm mb-6 ${plan.popular ? 'text-blue-100' : 'text-gray-600'}`}>
+              <p className={`text-sm mb-6 ${plan.popular ? 'text-blue-100' : 'text-gray-400'}`}>
                 {plan.description}
               </p>
 
               <div className="mb-6">
-                <span className={`text-5xl font-bold ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+                <span className={`text-5xl font-bold ${plan.popular ? 'text-white' : 'text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400'}`}>
                   ${billingCycle === 'monthly' ? plan.price.monthly : plan.price.annual}
                 </span>
-                <span className={`text-lg ${plan.popular ? 'text-blue-100' : 'text-gray-600'}`}>
+                <span className={`text-lg ${plan.popular ? 'text-blue-100' : 'text-gray-400'}`}>
                   /month
                 </span>
                 {billingCycle === 'annual' && plan.price.monthly > 0 && (
@@ -168,10 +172,10 @@ export default function Pricing() {
               </div>
 
               <button
-                className={`w-full py-3 rounded-lg font-bold mb-6 transition-all ${
+                className={`w-full py-3 rounded-lg font-bold mb-6 transition-all hover:scale-105 ${
                   plan.popular
-                    ? 'bg-white text-purple-600 hover:bg-yellow-300 hover:text-purple-900'
-                    : 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700'
+                    ? 'bg-white text-purple-600 hover:bg-yellow-300 hover:text-purple-900 shadow-lg'
+                    : 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 shadow-lg shadow-purple-500/30'
                 }`}
               >
                 {plan.cta}
@@ -193,7 +197,7 @@ export default function Pricing() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className={`text-sm ${plan.popular ? 'text-blue-100' : 'text-gray-700'}`}>
+                    <span className={`text-sm ${plan.popular ? 'text-blue-100' : 'text-gray-300'}`}>
                       {feature}
                     </span>
                   </li>

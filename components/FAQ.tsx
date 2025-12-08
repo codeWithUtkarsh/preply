@@ -57,13 +57,17 @@ export default function FAQ() {
   ]
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gray-900 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600 rounded-full opacity-10 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full opacity-10 blur-3xl"></div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Frequently Asked Questions
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Questions</span>
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-400">
             Everything you need to know about Preply
           </p>
         </div>
@@ -72,17 +76,17 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-md overflow-hidden"
+              className="glass-effect rounded-xl border border-purple-500/20 overflow-hidden hover:border-purple-500/40 transition-all"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
               >
-                <span className="font-semibold text-gray-900 pr-8">
+                <span className="font-semibold text-white pr-8">
                   {faq.question}
                 </span>
                 <svg
-                  className={`w-6 h-6 text-purple-600 flex-shrink-0 transition-transform ${
+                  className={`w-6 h-6 text-purple-400 flex-shrink-0 transition-transform ${
                     openIndex === index ? 'transform rotate-180' : ''
                   }`}
                   fill="none"
@@ -96,8 +100,8 @@ export default function FAQ() {
                 </svg>
               </button>
               {openIndex === index && (
-                <div className="px-6 pb-5">
-                  <p className="text-gray-600 leading-relaxed">
+                <div className="px-6 pb-5 border-t border-purple-500/20">
+                  <p className="text-gray-300 leading-relaxed pt-4">
                     {faq.answer}
                   </p>
                 </div>
