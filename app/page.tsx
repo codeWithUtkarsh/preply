@@ -1,8 +1,6 @@
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import Problem from '@/components/Problem'
-import Solution from '@/components/Solution'
-import HowItWorks from '@/components/HowItWorks'
 import Benefits from '@/components/Benefits'
 import SocialProof from '@/components/SocialProof'
 import Pricing from '@/components/Pricing'
@@ -16,10 +14,8 @@ export default function Home() {
       <Hero />
       <Problem />
       <div id="features">
-        <Solution />
+        <Benefits />
       </div>
-      <HowItWorks />
-      <Benefits />
       <SocialProof />
       <div id="pricing">
         <Pricing />
