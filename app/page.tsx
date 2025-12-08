@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
+import CTASection from '@/components/CTASection'
 import Problem from '@/components/Problem'
 import Benefits from '@/components/Benefits'
 import SocialProof from '@/components/SocialProof'
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navigation />
       <Hero />
+      <CTASection />
       <Problem />
       <div id="features">
         <Benefits />
