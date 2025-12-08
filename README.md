@@ -1,6 +1,6 @@
-# Preply Landing Page
+# Preply Landing Page - Waitlist Version
 
-A modern, responsive SPA landing page for Preply - an AI-powered video learning platform that transforms passive video watching into active learning experiences.
+A modern, responsive waitlist landing page for Preply - an AI-powered video learning platform that transforms passive video watching into active learning experiences. This page collects email signups from interested users before launch.
 
 ## Features
 
@@ -10,10 +10,13 @@ A modern, responsive SPA landing page for Preply - an AI-powered video learning 
 - ⚡ Built with Next.js 14 and TypeScript
 - 🎯 Interactive components and smooth animations
 - 🚀 Optimized for performance and SEO
+- 📧 **Waitlist Integration with Supabase**
+- 🔒 Secure email collection with duplicate prevention
+- ✅ Real-time success/error feedback
 
 ## Sections
 
-1. **Hero Section** - Eye-catching header with email capture and demo video
+1. **Hero Section** - "Coming Soon" badge with waitlist signup form
 2. **Problem Section** - Highlights pain points of traditional video learning
 3. **Solution/Features** - Interactive feature cards showcasing Preply's capabilities
 4. **How It Works** - 3-step visualization of the user journey
@@ -21,7 +24,7 @@ A modern, responsive SPA landing page for Preply - an AI-powered video learning 
 6. **Social Proof** - Testimonials, statistics, and trust indicators
 7. **Pricing** - Tier comparison with monthly/annual toggle
 8. **FAQ** - Expandable accordion with common questions
-9. **Footer** - Final CTA with navigation links and social media
+9. **Footer** - Final waitlist CTA with navigation links and social media
 
 ## Getting Started
 
@@ -29,6 +32,30 @@ A modern, responsive SPA landing page for Preply - an AI-powered video learning 
 
 - Node.js 18+
 - npm or yarn
+- **Supabase Account** (for waitlist functionality)
+
+### Supabase Setup
+
+1. **Create a Supabase Project**
+   - Go to [https://supabase.com](https://supabase.com)
+   - Create a new project
+   - Note your project URL and anon key
+
+2. **Set Up the Database**
+   - In your Supabase project, go to the SQL Editor
+   - Run the SQL commands from `supabase-schema.sql`
+   - This creates the `waitlist` table with proper RLS policies
+
+3. **Configure Environment Variables**
+   - Copy `.env.example` to `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+   - Update with your Supabase credentials:
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=your-project-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+   ```
 
 ### Installation
 
@@ -119,6 +146,30 @@ The built files will be in the `out/` directory.
 
 MIT
 
+## Waitlist Features
+
+### Email Collection
+- Validates email format before submission
+- Prevents duplicate signups
+- Stores submissions in Supabase
+- Shows success/error messages to users
+- Loading states during submission
+
+### Database Schema
+The waitlist table includes:
+- `id` (UUID, primary key)
+- `email` (TEXT, unique, required)
+- `name` (TEXT, optional - currently not collected)
+- `created_at` (TIMESTAMP)
+- `updated_at` (TIMESTAMP)
+
+### Viewing Waitlist Data
+Access your waitlist signups in Supabase:
+1. Go to your Supabase project
+2. Navigate to Table Editor
+3. Select the `waitlist` table
+4. Export to CSV for email campaigns
+
 ## About Preply
 
 Preply is an AI-powered video learning platform that uses OpenAI's GPT-4 and Whisper technology to automatically generate contextual questions, flashcards, and quizzes while students watch educational videos, dramatically improving retention and comprehension.
@@ -128,6 +179,8 @@ Key benefits:
 - 60% reduction in study time through targeted review
 - 85% improvement in quiz scores
 - Real-time comprehension tracking
+
+**Status:** Coming Soon - Early 2025 Launch
 
 ---
 
