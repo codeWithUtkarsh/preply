@@ -55,9 +55,52 @@ export default function Hero() {
             <span className="text-yellow-300">Start Learning.</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            AI-powered flashcards and quizzes that appear while you watch any educational video. Be the first to know when we launch!
+          <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto">
+            AI-powered flashcards and quizzes that appear while you watch any educational video.
           </p>
+
+          {/* Pain Points Section */}
+          <div className="max-w-3xl mx-auto mb-12">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border-2 border-white/20">
+              <h2 className="text-2xl md:text-3xl font-bold text-yellow-300 mb-6">Sound Familiar?</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                <div className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-red-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                  <p className="text-white text-base">You watch a 1-hour lecture but can't remember the key concepts</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-red-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                  <p className="text-white text-base">You zone out halfway through and miss important information</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-red-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                  <p className="text-white text-base">You spend hours rewatching just to find one specific explanation</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-red-400 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                  <p className="text-white text-base">You have no idea what you actually learned until the exam</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Question */}
+          <div className="mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Would you be happy to try a solution that fixes this?
+            </h3>
+            <p className="text-lg text-blue-100 mb-6">
+              Join our waitlist and be the first to experience AI-powered active learning!
+            </p>
+          </div>
 
           {/* Email capture form */}
           <form onSubmit={handleSubmit} className="max-w-md mx-auto mb-8">
