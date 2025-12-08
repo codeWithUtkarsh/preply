@@ -72,13 +72,14 @@ export default function Navigation() {
               FAQ
             </a>
             <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className={`px-6 py-2 rounded-lg font-semibold transition-all ${
                 isScrolled
                   ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700'
                   : 'bg-white text-purple-600 hover:bg-yellow-300'
               }`}
             >
-              Start Free
+              Join Waitlist
             </button>
           </div>
 
@@ -137,8 +138,14 @@ export default function Navigation() {
               >
                 FAQ
               </a>
-              <button className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold w-full">
-                Start Free
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false)
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }}
+                className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold w-full"
+              >
+                Join Waitlist
               </button>
             </div>
           </div>

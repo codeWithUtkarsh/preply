@@ -4,12 +4,36 @@ import { useState } from 'react'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Newsletter signup:', email)
-    alert('Thanks for subscribing!')
-    setEmail('')
+    setLoading(true)
+    setMessage(null)
+
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setMessage({ type: 'success', text: 'Successfully joined the waitlist! We\'ll notify you when we launch.' })
+        setEmail('')
+      } else {
+        setMessage({ type: 'error', text: data.error || 'Something went wrong. Please try again.' })
+      }
+    } catch (error) {
+      setMessage({ type: 'error', text: 'Network error. Please check your connection and try again.' })
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -21,7 +45,7 @@ export default function Footer() {
             Ready to Transform Your Learning?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join thousands of learners who are already studying smarter with Preply
+            Join the waitlist and be the first to know when Preply launches
           </p>
           <form onSubmit={handleSubmit} className="max-w-md mx-auto">
             <div className="flex flex-col sm:flex-row gap-3">
@@ -31,18 +55,29 @@ export default function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="flex-1 px-6 py-4 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-4 focus:ring-yellow-300"
+                disabled={loading}
+                className="flex-1 px-6 py-4 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-4 focus:ring-yellow-300 disabled:opacity-50 disabled:cursor-not-allowed"
               />
               <button
                 type="submit"
-                className="px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold rounded-lg text-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
+                disabled={loading}
+                className="px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold rounded-lg text-lg transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                Start Free
+                {loading ? 'Joining...' : 'Join Waitlist'}
               </button>
             </div>
-            <p className="text-sm text-blue-100 mt-3">
-              No credit card required • 3 videos free • Cancel anytime
-            </p>
+            {message && (
+              <div className={`mt-3 p-3 rounded-lg ${message.type === 'success' ? 'bg-green-500/20 border border-green-400' : 'bg-red-500/20 border border-red-400'}`}>
+                <p className={`text-sm ${message.type === 'success' ? 'text-green-100' : 'text-red-100'}`}>
+                  {message.text}
+                </p>
+              </div>
+            )}
+            {!message && (
+              <p className="text-sm text-blue-100 mt-3">
+                Be the first to know • Exclusive early access • Special launch pricing
+              </p>
+            )}
           </form>
         </div>
       </div>

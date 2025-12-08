@@ -1,3 +1,5 @@
+'use client'
+
 export default function HowItWorks() {
   const steps = [
     {
@@ -115,31 +117,24 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        {/* Video walkthrough section */}
+        {/* Coming Soon CTA */}
         <div id="demo" className="mt-16">
-          <div className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl p-8 md:p-12 text-white">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-3xl font-bold mb-4">See It In Action</h3>
-                <p className="text-blue-100 mb-6">
-                  Watch how Preply transforms a typical lecture video into an engaging learning experience with real-time flashcards and comprehensive quizzes.
-                </p>
-                <button className="px-6 py-3 bg-white text-purple-600 font-bold rounded-lg hover:bg-yellow-300 hover:text-purple-900 transition-colors duration-200">
-                  Watch Full Demo
-                </button>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                <div className="aspect-video bg-gray-900 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-                    <p className="text-white">2:30 Demo Video</p>
-                  </div>
-                </div>
-              </div>
+          <div className="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl p-8 md:p-12 text-white text-center">
+            <div className="max-w-2xl mx-auto">
+              <h3 className="text-3xl font-bold mb-4">Ready to Transform Your Learning?</h3>
+              <p className="text-blue-100 mb-6">
+                Be among the first to experience Preply when we launch. Join our waitlist to get exclusive early access and special launch pricing.
+              </p>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }}
+                className="inline-block px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold rounded-lg text-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
+              >
+                Join the Waitlist
+              </a>
             </div>
           </div>
         </div>
