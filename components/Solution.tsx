@@ -99,13 +99,17 @@ export default function Solution() {
   ]
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gray-900 relative overflow-hidden">
+      {/* Background gradient orbs */}
+      <div className="absolute top-1/3 left-0 w-96 h-96 bg-purple-600 rounded-full opacity-10 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full opacity-10 blur-3xl"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Meet <span className="gradient-text">Preply</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Meet <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">Preply</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Transform any video into an interactive learning experience powered by AI
           </p>
         </div>
@@ -116,15 +120,15 @@ export default function Solution() {
             <div
               key={index}
               onClick={() => setActiveFeature(index)}
-              className={`p-6 rounded-xl cursor-pointer transition-all duration-300 transform hover:scale-105 ${
+              className={`p-6 rounded-2xl cursor-pointer transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 group ${
                 activeFeature === index
-                  ? 'bg-gradient-to-br from-purple-600 to-blue-600 text-white shadow-2xl'
-                  : 'bg-gray-50 hover:bg-gray-100 text-gray-900'
+                  ? 'bg-gradient-to-br from-purple-600 to-blue-600 text-white shadow-2xl shadow-purple-500/40 pulse-glow'
+                  : 'glass-effect border border-purple-500/20 hover:border-purple-500/50 text-white hover:shadow-xl hover:shadow-purple-500/20'
               }`}
             >
-              <div className="mb-4">{feature.icon}</div>
+              <div className={`mb-4 transition-transform duration-300 ${activeFeature === index ? '' : 'group-hover:scale-110'}`}>{feature.icon}</div>
               <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-              <p className={`mb-4 ${activeFeature === index ? 'text-blue-100' : 'text-gray-600'}`}>
+              <p className={`mb-4 ${activeFeature === index ? 'text-blue-100' : 'text-gray-400'}`}>
                 {feature.description}
               </p>
               <ul className="space-y-2">
@@ -143,7 +147,7 @@ export default function Solution() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="text-sm">{benefit}</span>
+                    <span className={`text-sm ${activeFeature === index ? 'text-blue-100' : 'text-gray-300'}`}>{benefit}</span>
                   </li>
                 ))}
               </ul>

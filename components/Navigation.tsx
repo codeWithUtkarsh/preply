@@ -17,9 +17,9 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white shadow-lg'
+          ? 'glass-effect shadow-2xl shadow-purple-500/10 border-b border-white/10'
           : 'bg-transparent'
       }`}
     >
@@ -31,7 +31,7 @@ export default function Navigation() {
               <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">P</span>
               </div>
-              <span className={`text-2xl font-bold ${isScrolled ? 'gradient-text' : 'text-white'}`}>
+              <span className={`text-2xl font-bold ${isScrolled ? 'text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400' : 'text-white'}`}>
                 Preply
               </span>
             </a>

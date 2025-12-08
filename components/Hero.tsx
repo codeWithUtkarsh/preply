@@ -37,15 +37,16 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-purple-800">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-purple-800 animate-gradient">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-purple-500 rounded-full opacity-20 blur-3xl float-animation"></div>
         <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-blue-500 rounded-full opacity-20 blur-3xl float-animation" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-pink-500 rounded-full opacity-10 blur-3xl float-animation" style={{ animationDelay: '3s' }}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <div className="fade-in-up">
+        <div className="slide-up">
           <div className="inline-block mb-4 px-4 py-2 bg-yellow-400/20 border border-yellow-400 rounded-full">
             <p className="text-yellow-300 font-semibold">🚀 Coming Soon</p>
           </div>
@@ -117,9 +118,9 @@ export default function Hero() {
               <button
                 type="submit"
                 disabled={loading}
-                className="px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold rounded-lg text-lg transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-purple-900 font-bold rounded-xl text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-2xl hover:shadow-yellow-400/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:translate-y-0 pulse-glow"
               >
-                {loading ? 'Joining...' : 'Join Waitlist'}
+                {loading ? 'Joining...' : 'Join Waitlist →'}
               </button>
             </div>
             {message && (
