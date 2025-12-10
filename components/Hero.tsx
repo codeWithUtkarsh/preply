@@ -173,46 +173,84 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Right Column - Animated Carousel */}
-          <div className="relative h-[500px]">
-            {/* Carousel Cards */}
-            <div className="relative h-full">
-              {painPoints.map((point, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                    index === activeCard
-                      ? 'opacity-100 translate-y-0 scale-100 z-10'
-                      : index === (activeCard - 1 + painPoints.length) % painPoints.length
-                      ? 'opacity-0 -translate-y-8 scale-95 z-0'
-                      : 'opacity-0 translate-y-8 scale-95 z-0'
-                  }`}
-                >
-                  <div className={`glass-effect rounded-3xl p-8 border-2 h-full flex flex-col justify-center ${
-                    point.color === 'red' ? 'border-red-500/40' :
-                    point.color === 'orange' ? 'border-orange-500/40' :
-                    point.color === 'yellow' ? 'border-yellow-500/40' :
-                    'border-purple-500/40'
-                  }`}>
-                    <div className="flex items-start gap-6 mb-6">
-                      <div className={`w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0 ${
-                        point.color === 'red' ? 'bg-red-500/20' :
-                        point.color === 'orange' ? 'bg-orange-500/20' :
-                        point.color === 'yellow' ? 'bg-yellow-500/20' :
-                        'bg-purple-500/20'
+          {/* Right Column - Circular Rotating Carousel */}
+          <div className="relative h-[600px] overflow-hidden">
+            {/* Carousel Container */}
+            <div className="relative h-full flex items-center">
+              <div className="relative w-full h-[500px]">
+                {painPoints.map((point, index) => {
+                  // Calculate position in the rotation
+                  const position = (index - activeCard + painPoints.length) % painPoints.length
+
+                  // Determine visibility and position
+                  let translateY = '0%'
+                  let opacity = 0
+                  let scale = 0.9
+                  let zIndex = 0
+
+                  if (position === 0) {
+                    // Current card (center)
+                    translateY = '0%'
+                    opacity = 1
+                    scale = 1
+                    zIndex = 30
+                  } else if (position === 1) {
+                    // Next card (below)
+                    translateY = '110%'
+                    opacity = 0.7
+                    scale = 0.9
+                    zIndex = 20
+                  } else if (position === painPoints.length - 1) {
+                    // Previous card (above)
+                    translateY = '-110%'
+                    opacity = 0.7
+                    scale = 0.9
+                    zIndex = 20
+                  } else {
+                    // Hidden cards
+                    translateY = position < painPoints.length / 2 ? '220%' : '-220%'
+                    opacity = 0
+                    scale = 0.8
+                    zIndex = 0
+                  }
+
+                  return (
+                    <div
+                      key={index}
+                      className="absolute inset-0 transition-all duration-700 ease-in-out"
+                      style={{
+                        transform: `translateY(${translateY}) scale(${scale})`,
+                        opacity,
+                        zIndex
+                      }}
+                    >
+                      <div className={`glass-effect rounded-3xl p-8 border-2 h-[450px] flex flex-col justify-center ${
+                        point.color === 'red' ? 'border-red-500/40' :
+                        point.color === 'orange' ? 'border-orange-500/40' :
+                        point.color === 'yellow' ? 'border-yellow-500/40' :
+                        'border-purple-500/40'
                       }`}>
-                        {point.icon}
+                        <div className="flex items-start gap-6 mb-6">
+                          <div className={`w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0 ${
+                            point.color === 'red' ? 'bg-red-500/20' :
+                            point.color === 'orange' ? 'bg-orange-500/20' :
+                            point.color === 'yellow' ? 'bg-yellow-500/20' :
+                            'bg-purple-500/20'
+                          }`}>
+                            {point.icon}
+                          </div>
+                        </div>
+                        <h3 className="text-3xl font-bold text-white mb-4">{point.title}</h3>
+                        <p className="text-xl text-gray-400">{point.description}</p>
                       </div>
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-4">{point.title}</h3>
-                    <p className="text-xl text-gray-400">{point.description}</p>
-                  </div>
-                </div>
-              ))}
+                  )
+                })}
+              </div>
             </div>
 
             {/* Carousel Indicators */}
-            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 flex gap-2">
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex gap-2">
               {painPoints.map((_, index) => (
                 <button
                   key={index}
