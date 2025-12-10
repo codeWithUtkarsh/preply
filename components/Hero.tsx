@@ -1,11 +1,64 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Hero() {
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null)
+  const [activeCard, setActiveCard] = useState(0)
+
+  const painPoints = [
+    {
+      title: "Can't remember key concepts",
+      description: "Watch a 1-hour lecture but retain almost nothing",
+      color: "red",
+      icon: (
+        <svg className="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+        </svg>
+      )
+    },
+    {
+      title: "Zone out halfway through",
+      description: "Lose focus and miss critical information",
+      color: "orange",
+      icon: (
+        <svg className="w-6 h-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+        </svg>
+      )
+    },
+    {
+      title: "Waste hours rewatching",
+      description: "Scrub through videos to find one explanation",
+      color: "yellow",
+      icon: (
+        <svg className="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+        </svg>
+      )
+    },
+    {
+      title: "No idea what you learned",
+      description: "Only realize gaps when it's exam time",
+      color: "purple",
+      icon: (
+        <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+        </svg>
+      )
+    }
+  ]
+
+  // Auto-rotate carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveCard((prev) => (prev + 1) % painPoints.length)
+    }, 3000) // Change every 3 seconds
+
+    return () => clearInterval(interval)
+  }, [painPoints.length])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -120,62 +173,58 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Right Column - Pain Points Cards */}
-          <div className="space-y-4">
-            <div className="glass-effect rounded-2xl p-6 border border-red-500/30 hover:border-red-500/60 transition-all duration-300 hover:scale-105 group">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                  </svg>
+          {/* Right Column - Animated Carousel */}
+          <div className="relative h-[500px]">
+            {/* Carousel Cards */}
+            <div className="relative h-full">
+              {painPoints.map((point, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                    index === activeCard
+                      ? 'opacity-100 translate-y-0 scale-100 z-10'
+                      : index === (activeCard - 1 + painPoints.length) % painPoints.length
+                      ? 'opacity-0 -translate-y-8 scale-95 z-0'
+                      : 'opacity-0 translate-y-8 scale-95 z-0'
+                  }`}
+                >
+                  <div className={`glass-effect rounded-3xl p-8 border-2 h-full flex flex-col justify-center ${
+                    point.color === 'red' ? 'border-red-500/40' :
+                    point.color === 'orange' ? 'border-orange-500/40' :
+                    point.color === 'yellow' ? 'border-yellow-500/40' :
+                    'border-purple-500/40'
+                  }`}>
+                    <div className="flex items-start gap-6 mb-6">
+                      <div className={`w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0 ${
+                        point.color === 'red' ? 'bg-red-500/20' :
+                        point.color === 'orange' ? 'bg-orange-500/20' :
+                        point.color === 'yellow' ? 'bg-yellow-500/20' :
+                        'bg-purple-500/20'
+                      }`}>
+                        {point.icon}
+                      </div>
+                    </div>
+                    <h3 className="text-3xl font-bold text-white mb-4">{point.title}</h3>
+                    <p className="text-xl text-gray-400">{point.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-white font-semibold mb-1">Can't remember key concepts</h3>
-                  <p className="text-gray-400 text-sm">Watch a 1-hour lecture but retain almost nothing</p>
-                </div>
-              </div>
+              ))}
             </div>
 
-            <div className="glass-effect rounded-2xl p-6 border border-orange-500/30 hover:border-orange-500/60 transition-all duration-300 hover:scale-105 group">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-white font-semibold mb-1">Zone out halfway through</h3>
-                  <p className="text-gray-400 text-sm">Lose focus and miss critical information</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-effect rounded-2xl p-6 border border-yellow-500/30 hover:border-yellow-500/60 transition-all duration-300 hover:scale-105 group">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-white font-semibold mb-1">Waste hours rewatching</h3>
-                  <p className="text-gray-400 text-sm">Scrub through videos to find one explanation</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-effect rounded-2xl p-6 border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 hover:scale-105 group">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-white font-semibold mb-1">No idea what you learned</h3>
-                  <p className="text-gray-400 text-sm">Only realize gaps when it's exam time</p>
-                </div>
-              </div>
+            {/* Carousel Indicators */}
+            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 flex gap-2">
+              {painPoints.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveCard(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === activeCard
+                      ? 'w-8 bg-gradient-to-r from-purple-500 to-blue-500'
+                      : 'w-2 bg-gray-600 hover:bg-gray-500'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
