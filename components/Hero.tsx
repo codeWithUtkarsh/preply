@@ -174,10 +174,10 @@ export default function Hero() {
           </div>
 
           {/* Right Column - Circular Rotating Carousel */}
-          <div className="relative h-[600px] overflow-hidden">
+          <div className="relative h-[550px] overflow-hidden">
             {/* Carousel Container */}
-            <div className="relative h-full flex items-center">
-              <div className="relative w-full h-[500px]">
+            <div className="relative h-full flex items-center justify-center">
+              <div className="relative w-full h-full">
                 {painPoints.map((point, index) => {
                   // Calculate position in the rotation
                   const position = (index - activeCard + painPoints.length) % painPoints.length
@@ -185,7 +185,7 @@ export default function Hero() {
                   // Determine visibility and position
                   let translateY = '0%'
                   let opacity = 0
-                  let scale = 0.9
+                  let scale = 0.85
                   let zIndex = 0
 
                   if (position === 0) {
@@ -196,42 +196,43 @@ export default function Hero() {
                     zIndex = 30
                   } else if (position === 1) {
                     // Next card (below)
-                    translateY = '110%'
-                    opacity = 0.7
-                    scale = 0.9
+                    translateY = '115%'
+                    opacity = 0.6
+                    scale = 0.85
                     zIndex = 20
                   } else if (position === painPoints.length - 1) {
                     // Previous card (above)
-                    translateY = '-110%'
-                    opacity = 0.7
-                    scale = 0.9
+                    translateY = '-115%'
+                    opacity = 0.6
+                    scale = 0.85
                     zIndex = 20
                   } else {
                     // Hidden cards
-                    translateY = position < painPoints.length / 2 ? '220%' : '-220%'
+                    translateY = position < painPoints.length / 2 ? '230%' : '-230%'
                     opacity = 0
-                    scale = 0.8
+                    scale = 0.7
                     zIndex = 0
                   }
 
                   return (
                     <div
                       key={index}
-                      className="absolute inset-0 transition-all duration-700 ease-in-out"
+                      className="absolute left-0 right-0 transition-all duration-700 ease-in-out"
                       style={{
-                        transform: `translateY(${translateY}) scale(${scale})`,
+                        top: '50%',
+                        transform: `translateY(calc(-50% + ${translateY})) scale(${scale})`,
                         opacity,
                         zIndex
                       }}
                     >
-                      <div className={`glass-effect rounded-3xl p-8 border-2 h-[450px] flex flex-col justify-center ${
+                      <div className={`glass-effect rounded-2xl p-6 border-2 h-[160px] flex flex-col justify-center ${
                         point.color === 'red' ? 'border-red-500/40' :
                         point.color === 'orange' ? 'border-orange-500/40' :
                         point.color === 'yellow' ? 'border-yellow-500/40' :
                         'border-purple-500/40'
                       }`}>
-                        <div className="flex items-start gap-6 mb-6">
-                          <div className={`w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0 ${
+                        <div className="flex items-center gap-4">
+                          <div className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 ${
                             point.color === 'red' ? 'bg-red-500/20' :
                             point.color === 'orange' ? 'bg-orange-500/20' :
                             point.color === 'yellow' ? 'bg-yellow-500/20' :
@@ -239,9 +240,11 @@ export default function Hero() {
                           }`}>
                             {point.icon}
                           </div>
+                          <div className="flex-1">
+                            <h3 className="text-xl font-bold text-white mb-2">{point.title}</h3>
+                            <p className="text-sm text-gray-400">{point.description}</p>
+                          </div>
                         </div>
-                        <h3 className="text-3xl font-bold text-white mb-4">{point.title}</h3>
-                        <p className="text-xl text-gray-400">{point.description}</p>
                       </div>
                     </div>
                   )
@@ -250,7 +253,7 @@ export default function Hero() {
             </div>
 
             {/* Carousel Indicators */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex gap-2">
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
               {painPoints.map((_, index) => (
                 <button
                   key={index}
