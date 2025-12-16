@@ -55,14 +55,14 @@ export default function Navigation() {
             >
               Features
             </a>
-            <a
+            {/*<a
               href="#pricing"
               className={`font-semibold transition-colors ${
                 isScrolled ? 'text-gray-700 hover:text-purple-600' : 'text-white hover:text-yellow-300'
               }`}
             >
               Pricing
-            </a>
+            </a>*/}
             <a
               href="#faq"
               className={`font-semibold transition-colors ${

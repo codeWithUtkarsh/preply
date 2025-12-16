@@ -18,9 +18,7 @@ export default function Home() {
       <div id="features">
         <Benefits />
       </div>
-      <SocialProof />
       <div id="pricing">
-        <Pricing />
       </div>
       <div id="faq">
         <FAQ />

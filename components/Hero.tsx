@@ -107,7 +107,7 @@ export default function Hero() {
           <div className="slide-up text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-purple-500/30 mb-6">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-              <span className="text-sm text-gray-300">Launching Early 2025</span>
+              <span className="text-sm text-gray-300">Launching Early 2026</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1]">
@@ -119,7 +119,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-xl text-gray-400 mb-8 max-w-xl">
-              AI-powered flashcards and quizzes that appear while you watch.
+              No Ads, AI-powered adaptive learning and quizzes. Cut down your preparation time by 50%
               <span className="text-white font-semibold"> Never forget what you learn.</span>
             </p>
 
@@ -134,7 +134,7 @@ export default function Hero() {
                 <div className="text-sm text-gray-500">Time Saved</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-blue-400">1000+</div>
+                <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-blue-400">10+</div>
                 <div className="text-sm text-gray-500">On Waitlist</div>
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function Hero() {
             </form>
 
             <p className="text-sm text-gray-500">
-              Join 1,000+ learners • No credit card required • Early access
+              Join 10+ learners • No credit card required • Early access
             </p>
           </div>
 

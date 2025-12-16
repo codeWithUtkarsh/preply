@@ -12,7 +12,7 @@ export default function FAQ() {
     },
     {
       question: 'How does the AI generate questions?',
-      answer: 'Preply uses OpenAI\'s GPT-4 and Whisper technology. First, Whisper transcribes your video with high accuracy. Then, GPT-4 analyzes the content to understand context and key concepts, generating relevant flashcards and quiz questions that appear at strategic points during playback.'
+      answer: 'Preply uses Advance LLM agents and Whisper technology to research study pattern and generate questions. First, Whisper transcribes your video with high accuracy. Then, AI Agent analyzes the content to understand context, and based on the study activity and pattern generating relevant flashcards and quiz questions that appear at strategic points during playback.'
     },
     {
       question: 'Can I use Preply offline?',
@@ -36,11 +36,11 @@ export default function FAQ() {
     },
     {
       question: 'Do you offer a free trial?',
-      answer: 'Yes! The Free plan lets you process 3 videos per month (up to 10 minutes each) with no credit card required. It\'s a great way to experience Preply before upgrading.'
+      answer: 'Yes! The Free plan lets you process 3 videos per month (up to 10 minutes) with no credit card required. It\'s a great way to experience Preply before upgrading.'
     },
     {
       question: 'What languages does Preply support?',
-      answer: 'Currently, Preply supports English, Spanish, French, German, Italian, Portuguese, and Mandarin. We\'re constantly adding more languages based on user demand.'
+      answer: 'Currently, Preply currently supports English. We\'re constantly adding more languages based on user demand.'
     },
     {
       question: 'Can I customize the types of questions generated?',

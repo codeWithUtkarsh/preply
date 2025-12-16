@@ -115,11 +115,11 @@ export default function CTASection() {
                     <span className="text-white text-xs font-bold">RL</span>
                   </div>
                   <div className="w-10 h-10 rounded-full bg-gray-700 border-2 border-gray-950 flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">+996</span>
+                    <span className="text-white text-xs font-bold">+</span>
                   </div>
                 </div>
                 <div className="text-center md:text-right">
-                  <p className="text-white font-semibold">1,000+ learners waiting</p>
+                  <p className="text-white font-semibold">10+ learners waiting</p>
                   <p className="text-sm text-gray-400">Join them today</p>
                 </div>
               </div>
